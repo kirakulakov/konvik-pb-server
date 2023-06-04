@@ -16,6 +16,7 @@ type konvikServer struct {
 }
 
 func (s *konvikServer) Ping(ctx context.Context, _ *pb.PingRequest) (*pb.PingResponse, error) {
+
 	response := pb.PingResponse{
 		Timestamp: timestamppb.Now(),
 	}
@@ -30,9 +31,15 @@ func newServer() *konvikServer {
 func main() {
 	lis, err := net.Listen("tcp", fmt.Sprintf("localhost:%d", 50051))
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal(fmt.Sprintf("Error while creating listener:%v", err))
 	}
+
 	srv := grpc.NewServer()
 	pb.RegisterKonvikServer(srv, newServer())
-	srv.Serve(lis)
+
+	log.Println("Server started!")
+	if err := srv.Serve(lis); err != nil {
+		log.Fatal(fmt.Sprintf("Error while starting server:%v", err))
+	}
+
 }
