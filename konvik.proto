@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/kirakulakov/konvik-proto-describe";
+option go_package = "github.com/kirakulakov/konvik-pb-server";
 
 package konvik;
 

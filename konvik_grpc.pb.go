@@ -4,7 +4,7 @@
 // - protoc             v3.21.12
 // source: konvik.proto
 
-package konvik_proto_describe
+package konvik_pb_server
 
 import (
 	context "context"
