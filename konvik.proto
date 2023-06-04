@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "github.com/kirakulakov/konvik-proto-describe";
+
+package konvik;
+
+import "google/protobuf/timestamp.proto";
+
+message Timestamp {
+    google.protobuf.Timestamp timestamp = 1;
+}
+
+message PingRequest {}
+
+message PingResponse{
+    Timestamp timestamp = 1;
+}
+
+service Konvik {
+    rpc Ping(PingRequest) returns (PingResponse) {}
+}
