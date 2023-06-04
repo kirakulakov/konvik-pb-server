@@ -6,14 +6,10 @@ package konvik;
 
 import "google/protobuf/timestamp.proto";
 
-message Timestamp {
-    google.protobuf.Timestamp timestamp = 1;
-}
-
 message PingRequest {}
 
 message PingResponse{
-    Timestamp timestamp = 1;
+    google.protobuf.Timestamp Timestamp = 1;
 }
 
 service Konvik {
